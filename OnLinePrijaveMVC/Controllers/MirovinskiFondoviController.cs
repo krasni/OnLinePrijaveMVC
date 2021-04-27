@@ -197,7 +197,7 @@ namespace OnLinePrijaveMVC.Controllers
                        message: "Generirani PDF dokument",
                        attachments: new Attachment(newPdfFileName, stream.ToArray()));
 
-                    FlashMessage.Confirmation("Na adresu elektroničke pošte navedene na obrascu prijave, dobit ćete potvrdu primitka Vaše prijave.U slučaju da predmetnu potvrdu ne zaprimite, molimo da se javite na adresu distribucija.osiguranja@hanfa.hr");
+                    FlashMessage.Confirmation("Na adresu elektroničke pošte navedene na obrascu prijave, dobit ćete potvrdu primitka Vaše prijave. U slučaju da predmetnu potvrdu ne zaprimite, molimo da se javite na adresu distribucija.osiguranja@hanfa.hr");
                     return RedirectToAction("MirovinskiFondovi");
                 }
             }
