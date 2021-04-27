@@ -191,33 +191,18 @@ namespace OnLinePrijaveMVC.Controllers
                     distributer.DistributerFiles.Add(new DistributerFile { FilePath = (Path.Combine(fullUploadPath, newPdfFileName))});
                     db.SaveChanges();
 
-                    if (distributerVM.PosaljiNaEmail)
-                    {
-                        log.Info("PosaljiNaEmail:" + distributerVM.PosaljiNaEmail);
+                    emailService.SendEmail(
+                       fromDisplayName: "",
+                       fromEmailAddress: "noreply@hanfa.hr",
+                       toName: "",
+                       toEmailAddress: distributerVM.Email,
+                       subject: "Generirani PDF dokument",
+                       message: "Generirani PDF dokument",
+                       attachments: new Attachment(newPdfFileName, stream.ToArray()));
 
-                        emailService.SendEmail(
-                           fromDisplayName: "",
-                           fromEmailAddress: "noreply@hanfa.hr",
-                           toName: "",
-                           toEmailAddress: distributerVM.Email,
-                           subject: "Generirani PDF dokument",
-                           message: "Generirani PDF dokument",
-                           attachments: new Attachment(newPdfFileName, stream.ToArray()));
+                    FlashMessage.Confirmation("Na adresu elektroničke pošte navedene na obrascu prijave, dobit ćete potvrdu primitka Vaše prijave.U slučaju da predmetnu potvrdu ne zaprimite, molimo da se javite na adresu distribucija.osiguranja@hanfa.hr");
+                    return RedirectToAction("Distributeri");
 
-                        FlashMessage.Confirmation("Dokument je poslan na email: " + distributerVM.Email);
-                        return RedirectToAction("Distributeri");
-                    }
-                    else
-                    {
-
-                        var downloadCookie = new System.Web.HttpCookie("onLinePrijaveDistributeriDownloadPDF", DownloadToken);
-
-                        Response.AppendCookie(downloadCookie);
-
-                        log.Info($"Download potvrde: {newPdfFileName}");
-
-                        return File(stream.ToArray(), "application/pdf", newPdfFileName);
-                    }
                 }
             }
             catch (Exception ex)

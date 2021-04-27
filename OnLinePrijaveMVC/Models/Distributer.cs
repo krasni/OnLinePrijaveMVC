@@ -23,7 +23,7 @@ namespace OnLinePrijaveMVC.Models
         public string OIB { get; set; }
 
         [Required]
-        public DateTime DatumRodjenja { get; set; } = DateTime.Now;
+        public DateTime DatumRodjenja { get; set; }
 
         [Required]
         public string MjestoRodjenja { get; set; }

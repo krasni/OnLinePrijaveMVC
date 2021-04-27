@@ -190,30 +190,17 @@ namespace OnLinePrijaveMVC.Controllers
                     broker.BrokerFiles.Add(new BrokerFile { FilePath = (Path.Combine(fullUploadPath, newPdfFileName)) });
                     db.SaveChanges();
 
-                    if (brokerVM.PosaljiNaEmail)
-                    {
-                        log.Info("PosaljiNaEmail:" + brokerVM.PosaljiNaEmail);
+                    emailService.SendEmail(
+                       fromDisplayName: "",
+                       fromEmailAddress: "noreply@hanfa.hr",
+                       toName: "",
+                       toEmailAddress: brokerVM.Email,
+                       subject: "Generirani PDF dokument",
+                       message: "Generirani PDF dokument",
+                       attachments: new Attachment(newPdfFileName, stream.ToArray()));
 
-                        emailService.SendEmail(
-                           fromDisplayName: "",
-                           fromEmailAddress: "noreply@hanfa.hr",
-                           toName: "",
-                           toEmailAddress: brokerVM.Email,
-                           subject: "Generirani PDF dokument",
-                           message: "Generirani PDF dokument",
-                           attachments: new Attachment(newPdfFileName, stream.ToArray()));
-
-                        FlashMessage.Confirmation("Dokument je poslan na email: " + brokerVM.Email);
-                        return RedirectToAction("Brokeri");
-                    }
-                    else
-                    {
-
-                        var downloadCookie = new System.Web.HttpCookie("onLinePrijaveBrokeriDownloadPDF", DownloadToken);
-                        Response.AppendCookie(downloadCookie);
-                        log.Info($"Download potvrde: {newPdfFileName}");
-                        return File(stream.ToArray(), "application/pdf", newPdfFileName);
-                    }
+                    FlashMessage.Confirmation("Na adresu elektroničke pošte navedene na obrascu prijave, dobit ćete potvrdu primitka Vaše prijave. U slučaju da predmetnu potvrdu ne zaprimite, molimo da se javite na adresu distribucija.osiguranja@hanfa.hr");
+                    return RedirectToAction("Brokeri");
                 }
             }
             catch (Exception ex)

@@ -188,29 +188,17 @@ namespace OnLinePrijaveMVC.Controllers
                     mirovinskiFond.MirovinskiFondFiles.Add(new MirovinskiFondFile { FilePath = (Path.Combine(fullUploadPath, newPdfFileName)) });
                     db.SaveChanges();
 
-                    if (mirovinskiFondVM.PosaljiNaEmail)
-                    {
-                        log.Info("PosaljiNaEmail:" + mirovinskiFondVM.PosaljiNaEmail);
+                    emailService.SendEmail(
+                       fromDisplayName: "",
+                       fromEmailAddress: "noreply@hanfa.hr",
+                       toName: "",
+                       toEmailAddress: mirovinskiFondVM.Email,
+                       subject: "Generirani PDF dokument",
+                       message: "Generirani PDF dokument",
+                       attachments: new Attachment(newPdfFileName, stream.ToArray()));
 
-                        emailService.SendEmail(
-                           fromDisplayName: "",
-                           fromEmailAddress: "noreply@hanfa.hr",
-                           toName: "",
-                           toEmailAddress: mirovinskiFondVM.Email,
-                           subject: "Generirani PDF dokument",
-                           message: "Generirani PDF dokument",
-                           attachments: new Attachment(newPdfFileName, stream.ToArray()));
-
-                        FlashMessage.Confirmation("Dokument je poslan na email: " + mirovinskiFondVM.Email);
-                        return RedirectToAction("MirovinskiFondovi");
-                    }
-                    else
-                    {
-                        var downloadCookie = new System.Web.HttpCookie("onLinePrijaveMirovinskiFondoviDownloadPDF", DownloadToken);
-                        Response.AppendCookie(downloadCookie);
-                        log.Info($"Download potvrde: {newPdfFileName}");
-                        return File(stream.ToArray(), "application/pdf", newPdfFileName);
-                    }
+                    FlashMessage.Confirmation("Na adresu elektroničke pošte navedene na obrascu prijave, dobit ćete potvrdu primitka Vaše prijave.U slučaju da predmetnu potvrdu ne zaprimite, molimo da se javite na adresu distribucija.osiguranja@hanfa.hr");
+                    return RedirectToAction("MirovinskiFondovi");
                 }
             }
             catch (Exception ex)

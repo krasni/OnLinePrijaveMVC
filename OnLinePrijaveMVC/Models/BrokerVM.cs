@@ -21,7 +21,7 @@ namespace OnLinePrijaveMVC.Models
         public string Prezime { get; set; }
 
         [Display(Name = "Datum rođenja (DD.MM.GGGG)")]
-        public DateTime DatumRodjenja { get; set; } = DateTime.Now;
+        public DateTime DatumRodjenja { get; set; }
 
         [Display(Name = "Mjesto rođenja")]
         public string MjestoRodjenja { get; set; }
@@ -76,9 +76,6 @@ namespace OnLinePrijaveMVC.Models
 
         [Display(Name = "Vrijeme prijave")]
         public string VrijemePrijave { get; set; }
-
-        [Display(Name = "Pošalji potvrdu na email")]
-        public bool PosaljiNaEmail { get; set; }
     }
 
     public class BrokerVMValidator : AbstractValidator<BrokerVM>

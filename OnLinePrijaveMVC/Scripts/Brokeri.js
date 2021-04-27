@@ -245,7 +245,7 @@ $("#DatumRodjenja").datepicker({
     maxDate: 0
 });
 $.datepicker.setDefaults($.datepicker.regional['hr']);
-$("#DatumRodjenja").datepicker("setDate", new Date());
+$("#DatumRodjenja").datepicker("setDate", '');
 
 function UploadFiles(registrationDate) {
 
@@ -461,7 +461,6 @@ function SaveFormData() {
     formData.append('IspitiPolozeniUHanfi', $('#IspitiPolozeniUHanfi').val());
     formData.append('IspitiPolozeniUOrganizacijiCFA', $('#IspitiPolozeniUOrganizacijiCFA').val());
     formData.append('VrijemePrijave', registrationDate);
-    formData.append('PosaljiNaEmail', $('#PosaljiNaEmail').prop("checked"));
 
     jQuery(function ($) {
         $.ajax({

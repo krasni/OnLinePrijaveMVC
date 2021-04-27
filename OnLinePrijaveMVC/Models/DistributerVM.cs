@@ -20,7 +20,7 @@ namespace OnLinePrijaveMVC.Models
         public string OIB { get; set; }
 
         [Display(Name = "Datum rođenja (DD.MM.GGGG)")]
-        public DateTime DatumRodjenja { get; set; } = DateTime.Now;
+        public DateTime DatumRodjenja { get; set; }
 
         [Display(Name = "Mjesto rođenja")]
         public string MjestoRodjenja { get; set; }
@@ -81,9 +81,6 @@ namespace OnLinePrijaveMVC.Models
         public bool PosrednikUOsiguranju { get; set; }
 
         public string VrijemePrijave { get; set; }
-
-        [Display(Name = "Pošalji potvrdu na email")]
-        public bool PosaljiNaEmail { get; set; }
     }
 
     public class DistributeriVMValidator : AbstractValidator<DistributerVM>
