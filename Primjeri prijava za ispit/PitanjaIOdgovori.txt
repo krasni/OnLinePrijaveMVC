@@ -1,0 +1,154 @@
+1.Bit će još online formi za ispite?
+2.Šifra ispita, provjera da li je unikatna?
+--Šifra ispitanika je proizvoljan kod koji se dodjeljuju sam ispitanik, 
+ali u obaveznom predefiniranom formatu. Kontrole formata treba ugraditi u polje
+3.Tko generira šifru ispitanika, program?
+4.Da napravimo neko generičko generiranje ispita, ili uvijek sve crtamo?
+5.Po popunjavanju web obrasca, prijavitelju ispita se mora generirati pripadni dokument 
+prijave za polaganje ispita, ali ga on ne mora potpisivati niti skenirati.
+-- pdf?, word?, šaljemo na mail, ili direktni download?
+
+•	Šifrarnike država, gradova i poštanskih brojeve treba preuzeti ili 
+	sustavno preuzimati od BP2 ili Pisarnice kako bismo imali mapiranu situaciju za fazu 2 projekta. 
+-- mora biti bp2, ili uzmemo šifrarnike država, gradova i poštanskih brojeva sa intereta?
+-- može biti i strana država? oib mora biti naš?
+•	Mail adresa za dostavu generiranog dokumenta prijave za ispit
+
+Svaka kontrola za učitavanje dokumenata mora omogućiti učitavanje više dokumenata odjednom
+ jer ovisno o načinu skeniranje, prijavitelji ispita smiju sken predati stranicu po stranicu.
+Svaka vrsta prijave ispita mora imati i dodatno polje Ostalo za učitavanje proizvoljnih popratnih dokumenata.
+
+6. kad se spreme digitalni dokumenti u bazu, kako ih prebaciti u pisarnicu?
+
+7. Opaska oko urudžbiranje potpuno krivih ili testnih prijava - ovo mi nije jasno
+
+Treba jasno raščistiti da UL treba urudžbirati samo onu dokumentaciju koja djelatnici odluče urudžbirati, 
+te se time neće urudžbirati potpuno krive ili testne prijave. Ovo je neophodan stav kako „smeće“ ne bi u konačnici opteretilo i pisarnicu. 
+Danas je obaveza Hanfe da urudžbira svu dokumentaciju koja joj stigne u pisarnicu. 
+Online prijava ispita je djelomično i ekvivalent donošenja dokumentacije u pisarnicu. 
+Međutim, danas će pisarnica urudžbirati svu pristiglu dokumentaciju neovisno o njezinom sadržaju. 
+Mi se ovdje zalažemo da djelatnici UL ne urudžbiraju svu pristiglu dokumentaciju, već samo onu na osnovu koje ima smisla pokretati prijavu ispita. 
+Imamo već presedan u SST-u.
+
+Sugestija je da se ovaj komad napravi neovisno o samoj prijavi ispita u najvećoj mogućoj mjeri je nam se ovakvi zahtjevi opetovano ponavljaju.
+-- šta to znači, neko univerzalno riješenje?
+
+-- oib, fizička ili pravna osoba?
+
+2.	Sučelje za poluatomatsko urudžbiranje dokumentacije kako bi se korisnicima rasteretio runi rad. 
+Kako prijavitelji ispita većinom ne postoje u bazama Hanfe od ranije, ovo sučelje može samo napraviti 
+komparaciju podataka u BP2 s onima koji su pristigli prema OIB-u. Usporedno prikazati podatke o prijavitelji iz online prijave i iz BP2.
+ Ako djelatnik UL-a sa sigurnošću zaključi da se radi o istoj osobi, kliknut e na akcijski gumb Urudžbiraj.
+ Na tu akciju potrebno je odraditi servisne pozive za kreiranje predmeta te urudžbiranje dokumenta prijave i popratnih priloga. 
+Također je potrebno dokumentaciju premjestiti u mapu Obrađeno na samom poslužitelju.
+Na sučelju je potrebno prikazati i upozorenje ako u bazi BP2 postoji korisnik s istim imenom i prezimenom.
+
+-- možemo nekako ako je novi subjekt, unjeti ga bp2 pa onda urudžbirati?
+
+-- moramo podesiti ukupne veličine datoteka koje se uploadaju !!!!
+
+-- odgovor:
+
+3.	Sučelje za automatsko punjenje BP2  za one prijavitelje ispita koji nisu od ranije u bazu. 
+S online prijavom ispita u bazi OPI-a nalaze se svi podaci koji su potrebni za otvaranje subjekta u BP2.
+ Ako prema točki 2 ispadne da ne postoji korisnik pod tim OIB-om u bazi BP2, djelatnik UL-a
+ će korisnika stvoriti putem ovog sučelja te će zatim moći dokumente urudžbirati prema točki 2.
+
+Vremenski odmak sinkronizacije BP2 i ePisarnice je 1 minutu. Svejedno će djelatnici UL-a, morati voditi računa mimo samog sustava da ne mogu 
+iste sekunde kada su otvorili prijavitelja ispita u BP2 kliknuti urudžbiraj jer će poziv biti neuspješan.
+
+-- koji je problem sa tim OIB-ima, nika mi to nije bilo jasno
+
+--tetlo bakula gregorović
+
+-- obrazac-prijave-distributeri.docx
+
+-- kod multiple file update, automatski ili pojedinačno da klika korisnik za svaku fajlu?
+-- staviti ograničenja na file extensions
+-- slični su personal data, isti su, napravi komponentu !!!!!
+7.	Ako je korisnik na kontrolu odgovorio potvrdno, učitana dokumentacija se pohranjuje na Hanfin poslužitelj
+, a podaci s web forme kreiraju dokument koji vizualno odgovora današnjem obrascu prijave
+8.	Korisniku se na mail šalje kreirani dokument prijave za ispit. Isti će prijavitelj ispita, 
+ako će zaista dolaziti na ispit potpisati i ponijeti sa sobom.
+-- trebaju mi službeni nazivi ispita
+
+-- pdf napravi da se mejla
+-- klasu popuni sa displayname, required itd... -- jesam
+-- baza , entity framework
+-- validacija za upload kontrolu(dužina fajle)
+-- mejlanje da proradi
+-- dodaj po 5 mb(MAX) za svaku upload  kontrolu
+-- stavi main page (layout) -- jesam
+-- ne radi validacija upload kontrole kad je prazna (required)
+-- dodaj masku za sifru kandidata
+https://sensibledev.com/phone-number-validation-in-asp-net/
+-- premjesti cookie alert na layout
+-- premjesti logo
+-- ne upload u direktorij !!!
+-- logiranje riješiti!!!!
+-- stavi validation summary na vrhu, server mora validirati
+-- 
+
+
+10.08.2020
+napravio sam:
+
+1. Promijenio sam naslova na formi i na pdf-u za mirovinske fondove u "Nova registracija za mirovinske fondove i i mirovinsko osiguravajuće društvo"
+2. Promijenio sam naslov prve točke za prijavu i na pdf-u za mirovinske fondove u "Stjecanje zvanja ovlaštenog upravitelja mirovinskim fondovima"
+3. Mirovinski fondovi - ako je prazno "Podaci o ispitima položenim u organizaciji Hanfe (naziv i godina)"
+	ili "Podaci o ispitima položenim u organizaciji CFA instituta", da ispiše blank.
+4. Pitanje: Da li da samo omogućimo da mu potvrda ode na mail, da se ne download odmah ili da 
+	mu damo izbor hoće li na mail potvrdu ili odmah download?
+5. Predlažem da mu pošaljemo na mail samo potvrdu da je prija izvršena, a ne popunjeni pdf dokument, specificirajte mi
+	kako da izgleda ta potvrda, prilažem u mailu potvrdu za stručne radove, hoćemo li tako nekako?
+6. Maknuo sam potpis sa mirovinskih fondova
+7. Na mirovinskim fondovima, stavio sam da je polje Dokaz iz članka 5. stavka 1. ovog Pravilnika (5 MB) obavezno.
+8. MF : maknuo sam zvjezdice sa polja "C) Podaci o ispitima položenima u organizaciji Hanfe (naziv i godina)"
+	i "D) Podaci o ispitima položenima u organizaciji CFA Instituta", oni i tako nisu bili obavezni
+9. MF: Stavljeno je da ako je nešto upisano u polje"D) Podaci o ispitima položenima u organizaciji CFA Instituta",
+	da je polje " Dokaz o položenim ispitima iz točke 9. podtočke D) ovoga obrasca, kada je primjenjivo (5MB)"
+	obavezno
+
+9. Brokeri: Promijenio naslov na formi i u pdf-u na "Nova registracija za tržište kapitala"
+10. Brokeri: Maknuo sam potips na pdf-u
+11. Brokeri: ako je prazno "Podaci o ispitima položenim u organizaciji Hanfe (naziv i godina)"
+	ili "Podaci o ispitima položenim u organizaciji CFA instituta", da ispiše blank.
+12. Brokeri: stavio sam da je polje Dokaz iz članka 5. stavka 1. ovog Pravilnika (5 MB) obavezno.
+13. Brokeri: Stavljeno je da ako je nešto upisano u polje"D) Podaci o ispitima položenima u organizaciji CFA Instituta",
+	da je polje " Dokaz o položenim ispitima iz točke 9. podtočke D) ovoga obrasca, kada je primjenjivo (5MB)"
+	obavezno
+
+
+
+
+VAŽNO !!!!!!
+Kod mijenjanja okoline, npr iz testa na TITAN treba promijeniti u Web.configu sljedeće postavke:
+
+  <!--<add key="ServerRoot" value="http://titan:8021/OnLinePrijave"/>-->
+  <add key="ServerRoot" value="http://localhost:57935"/>
+
+  <!--<jsnlog maxmessages="20" defaultAjaxUrl="/OnLinePrijave/jsnlog.logger" productionLibraryPath="~/Scripts/jsnlog.js" serverSideMessageFormat="%requestId | %message"></jsnlog>-->
+  <jsnlog maxmessages="20" defaultAjaxUrl="/jsnlog.logger" productionLibraryPath="~/Scripts/jsnlog.js" serverSideMessageFormat="%requestId | %message"></jsnlog>
+
+  <connectionStrings>
+   <add name="OnLinePrijaveDB" connectionString="Data Source=(localdb)\ProjectsV13;Initial Catalog=OnLinePrijave;Integrated Security=SSPI;" providerName="System.Data.SqlClient" />
+   <!--<add name="OnLinePrijaveDB" connectionString="Data Source=DESKTOP-FMSCI3S;Initial Catalog=OnLinePrijave;Integrated Security=SSPI;" providerName="System.Data.SqlClient" />-->
+   <!--<add name="OnLinePrijaveDB" connectionString="Data Source=TITAN;Initial Catalog=OnLinePrijave;Integrated Security=SSPI;" providerName="System.Data.SqlClient" />-->
+  </connectionStrings>
+
+  promijeni OnLinePrijaveUploadFolder u appsettings, stavi na kraju putanje "\"
+
+
+  --- dodaj da se može konfigurirati folder za download u web.config -- jesam
+  -- dodaj još uputstva kako dodati multiple files za upload sa control tipkom
+
+  ---------------------------------------------------------------------------------------
+
+  16.10.2020 - dodatne promjene zbog automatskog urudžbiranja
+  -- promjeniti fajlu iz PotvrdaDistributeri u PrijavaDistributeri
+  -- adresu moram razložiti na ulica, kućni broj, grad
+  -- dodati urudžbirano urudžbirano bool, ulica, kućni broj, grad
+
+  -- entityID, ulica ,kućni broj, grad
+  --*(ulica, kućni broj, grad)
+  -- mrežnu putanju dodati ????

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    @Html.Raw(JSNLog.JavascriptLogging.Configure())
+
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="~/Content/screen.css">
+    <link rel="stylesheet" media="screen" href="~/Content/styles.css">
+    <link rel="stylesheet" href="~/Content/cookiealert.css">
+    <link rel="stylesheet" href="~/Content/themes/base/jquery-ui.min.css">
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="https://kit.fontawesome.com/3cce785412.js" SameSite="none Secure" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="http://www.hanfa.hr"><img src="~/Content/images/hanfa-logo.png" style="padding:5px;" alt="Company logo" /></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Online Prijave <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Distribucija osiguranja i/ili reosiguranja", "Distributeri", "Distributeri")</li>
+                            <li>@Html.ActionLink("Mirovinski fondovi i mirovinska osiguravajuća društva", "MirovinskiFondovi", "MirovinskiFondovi")</li>
+                            <li>@Html.ActionLink("Informiranje, brokeri i investicijsko savjetovanje", "Brokeri", "Brokeri")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p class="copy">
+                Copyright © 2020. HANFA, Franje Račkoga 6, 10000 Zagreb — Sva prava pridržana
+            </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.ajax-retry.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <script src="~/Scripts/cookiealert.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        var chunkSizeInMB = "@System.Configuration.ConfigurationManager.AppSettings["ChunkSizeInMB"]";
+        var serverRoot = "@System.Configuration.ConfigurationManager.AppSettings["ServerRoot"]"
+    </script>
+
+</body>
+</html>

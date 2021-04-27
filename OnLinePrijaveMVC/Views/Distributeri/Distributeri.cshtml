@@ -1,0 +1,361 @@
+﻿@model OnLinePrijaveMVC.Models.DistributerVM
+@using Vereyon.Web;
+
+<h3>@ViewBag.Message</h3>
+
+<style type="text/css">
+    .progress {
+        border: 5px solid;
+    }
+
+    .progress-bar {
+        background: #369;
+        line-height: 50px;
+        display: inline-block;
+    }
+
+    .progress span {
+        display: block;
+        margin: 0px auto;
+        width: 40px;
+        margin-top: -50px;
+        line-height: 50px;
+        color: #fff;
+    }
+
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+        padding: 0px;
+    }
+
+</style>
+
+<div>
+    <p class="h4">PRIJAVA ZA POLAGANJE ISPITA ZA UPIS U REGISTAR POSREDNIKA I SPOREDNIH POSREDNIKA U OSIGURANJU</p>
+
+    <form id="form1" role="form" method="post" enctype="multipart/form-data">
+        @Html.RenderFlashMessages()
+        @Html.ValidationSummary(false, "", new { @class = "text-danger font-weight-bold" })
+        @Html.AntiForgeryToken()
+        <br />
+
+        <div class="row">
+            <div class="alert alert-success" id="prijavaPredana" role="alert" style="display:none;">Vaša prijava je uspješno predana.</div>
+
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.Ime, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Ime, new { placeholder = Html.DisplayNameFor(m => m.Ime), @class = "form-control" })
+            </div>
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.Prezime, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Prezime, new { placeholder = Html.DisplayNameFor(m => m.Prezime), @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.OIB, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.OIB, new { placeholder = Html.DisplayNameFor(m => m.OIB), @class = "form-control" })
+            </div>
+
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.DatumRodjenja, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.DatumRodjenja, new { placeholder = Html.DisplayNameFor(m => m.DatumRodjenja), @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.MjestoRodjenja, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.MjestoRodjenja, new { placeholder = Html.DisplayNameFor(m => m.MjestoRodjenja), @class = "form-control" })
+            </div>
+
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.DrzavaRodjenja, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.DrzavaRodjenja, new { placeholder = Html.DisplayNameFor(m => m.DrzavaRodjenja), @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-12">
+                <h2>Adresa stanovanja</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group required col-md-2">
+                @Html.LabelFor(model => model.Ulica, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Ulica, new { placeholder = Html.DisplayNameFor(m => m.Ulica), @class = "form-control" })
+            </div>
+
+            <div class="form-group required col-md-2">
+                @Html.LabelFor(model => model.KucniBroj, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.KucniBroj, new { placeholder = Html.DisplayNameFor(m => m.KucniBroj), @class = "form-control" })
+            </div>
+
+            <div class="form-group required col-md-2">
+                @Html.LabelFor(model => model.Grad, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Grad, new { placeholder = Html.DisplayNameFor(m => m.Grad), @class = "form-control" })
+            </div>
+
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.BrojTelefona, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.BrojTelefona, new { placeholder = Html.DisplayNameFor(m => m.BrojTelefona), @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Email, new { placeholder = Html.DisplayNameFor(m => m.Email), @class = "form-control" })
+            </div>
+
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.StrucnaSprema, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.StrucnaSprema, new { placeholder = Html.DisplayNameFor(m => m.StrucnaSprema), @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.Zanimanje, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Zanimanje, new { placeholder = Html.DisplayNameFor(m => m.Zanimanje), @class = "form-control" })
+            </div>
+
+            <div class="form-group col-md-6">
+                @Html.LabelFor(model => model.ZaposlenKod, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.ZaposlenKod, new { placeholder = Html.DisplayNameFor(m => m.ZaposlenKod), @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.IspitPolazem, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.IspitPolazem, new { placeholder = Html.DisplayNameFor(m => m.IspitPolazem), @class = "form-control", @type = "number", @min = "0", @oninput = "this.value = Math.abs(this.value)" })
+            </div>
+
+            <div class="form-group required col-md-6">
+                @Html.LabelFor(model => model.SifraKandidata, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.SifraKandidata, new { placeholder = Html.DisplayNameFor(m => m.SifraKandidata), @class = "form-control" })
+                <small class="form-text text-muted">
+                    (šifru upisuje kandidat, tako da upiše redom inicijale svog imena i prezimena, zatim dvije jednoznamenkaste brojke i na kraju velikim tiskanim slovima po svom izboru tri velika tiskana slova, primjerice, šifra za kandidata Željka Horvat Šimić može biti: ŽHŠ59AFC)
+                </small>
+                <br />
+                <br />
+                <small class="form-text text-muted">
+                    VAŽNA NAPOMENA:
+                </small>
+                <br />
+                <br />
+                <small class="form-text text-muted">
+                    Bez upisane šifre kandidata HANFA neće biti u mogućnosti pozvati kandidata na polaganje ispita.
+                </small>
+            </div>
+        </div>
+
+        <div class="col-md-6"><b>Prijavljujem polaganje ispita za provjeru stručnih znanja iz:*</b></div>
+
+        <div class="form-check col-md-12">
+            <br />
+            @Html.CheckBoxFor(model => model.ZivotnoOsiguranje, Model.ZivotnoOsiguranje)
+            @Html.LabelFor(model => model.ZivotnoOsiguranje, new { @class = "form-check-label" })
+        </div>
+
+        <div class="form-check  col-md-12">
+            @Html.CheckBoxFor(model => model.NezivotnoOsiguranje)
+            @Html.LabelFor(model => model.NezivotnoOsiguranje, new { @class = "form-check-label" })
+            <br />
+        </div>
+
+        <div class="col-md-6 form-group">
+            <small>* Moguće je prijaviti polaganje ispita za oba područja, ili samo za jedno područje osiguranja.</small>
+            <br />
+            <br />
+            <small>za obavljanje poslova*:</small>
+        </div>
+
+        <div class="form-check col-md-12">
+            @Html.CheckBoxFor(model => model.DistribucijaOsiguranja)
+            @Html.LabelFor(model => model.DistribucijaOsiguranja, new { @class = "form-check-label" })
+        </div>
+
+        <div class="form-check col-md-12">
+            @Html.CheckBoxFor(model => model.DistribucijaReosiguranja)
+            @Html.LabelFor(model => model.DistribucijaReosiguranja, new { @class = "form-check-label" })
+        </div>
+
+        <div class="col-md-12 form-group">
+            <small>
+                *distribuciju reosiguranja može obavljati samo broker u reosiguranju.
+            </small>
+        </div>
+
+        <div class="col-md-12 form-group">
+            <small>
+                i namjeravam obavljati poslove distribucije u sljedećoj kategoriji:
+            </small>
+        </div>
+
+        <div class="form-check col-md-12">
+            @Html.CheckBoxFor(model => model.ZastupnikUOsiguranju)
+            @Html.LabelFor(model => model.ZastupnikUOsiguranju, new { @class = "form-check-label" })
+        </div>
+
+        <div class="form-check  col-md-12">
+            @Html.CheckBoxFor(model => model.BrokerUOsiguranju)
+            @Html.LabelFor(model => model.BrokerUOsiguranju, new { @class = "form-check-label" })
+        </div>
+
+        <div class="form-check  col-md-12">
+            @Html.CheckBoxFor(model => model.BrokerUReosiguranju)
+            @Html.LabelFor(model => model.BrokerUReosiguranju, new { @class = "form-check-label" })
+        </div>
+
+        <div class="form-check col-md-12">
+            @Html.CheckBoxFor(model => model.PosrednikUOsiguranju)
+            @Html.LabelFor(model => model.PosrednikUOsiguranju, new { @class = "form-check-label" })
+        </div>
+
+        <div class="col-md-12 form-group">
+
+        </div>
+
+        <div class="row">
+            <div class="form-check col-md-12">
+                @Html.CheckBoxFor(model => model.PosaljiNaEmail)
+                @Html.LabelFor(model => model.PosaljiNaEmail, new { @class = "form-check-label" })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <p>Uz prijavu potrebno je dostaviti sljedeće:</p>
+            </div>
+
+            <div class="col-md-12 form-group">
+                <label class="control-label">1. Ovjerenu presliku isprave o stečenoj najmanje srednjoj stručnoj spremi ili ispravu izdanu u obliku elektroničkog zapisa putem sustava e-Građani ili dokument o priznavanju najmanje inozemne srednjoškolske kvalifikacije u svrhu zapošljavanja ili nastavka obrazovanja, izdanom od strane nadležnog tijela u Republici Hrvatskoj (5 MB)</label>
+                <div>
+                    <input type="file" id="PreslikeOSpremi" name="PreslikeOSpremi" multiple="multiple" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-12 form-group required">
+                <label class="control-label">2. Dokaze o plaćenoj naknadi u skladu s odredbama Pravilnika kojim HANFA propisuje vrstu i visinu naknada i administrativnih pristojbi (5MB)</label>
+                <div>
+                    <input type="file" id="DokaziOUplacenojNaknadi" name="DokaziOUplacenojNaknadi" multiple="multiple" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-12 form-group required">
+                <label class="control-label">3. a) Izjavu o ispunjavanju uvjeta primjerenosti, b) *Izjavu s podacima o osobama, koje su u uskoj povezanosti s kandidatom (članak 3. točka 26. Zakona o osiguranju) (5 MB)</label>
+                <label class="control-label">*izjavu pod b) je potrebno popuniti samo u slučaju kada postoji povezanost</label>
+                <br />
+                <a href="~/Distributeri/DownloadIzjavaPrimjerenostPovezanost">Preuzmi Izjavu o primjerenosti i Izjavu o povezanosti</a>
+                <div>
+                    <input type="file" id="Izjave" name="Izjave" multiple="multiple" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-12 form-group required">
+                <label class="control-label">4. Suglasnost za objavu osobnih podataka u registru ovlaštenih zastupnika u osiguranju, brokera u osiguranju i/ili reosiguranju i sporednih posrednika (5 MB)</label>
+                <br />
+                <a href="~/Distributeri/DownloadIzjavaJavnaObjavaPodatakaRegistar">Preuzmi Izjavu/suglasnost za objavu osobnih podataka</a>
+                <div>
+                    <input type="file" id="Suglasnost" name="Suglasnost" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-md-12 form-group">
+                <label class="control-label">5. Ostala dokumentacija (5 MB)</label>
+                <div>
+                    <input type="file" id="OstalaDokumentacija" name="OstalaDokumentacija" multiple="multiple" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" id="counter" value="0" />
+        <input type="hidden" id="total" value="0" />
+        <input type="hidden" id="filesUploaded" value="0" />
+        <input type="hidden" id="filesToUpload" value="0" />
+
+        <div class="form-group col-md-6">
+            <button type="button" id="btnUpload" class="btn btn-primary">Predaj podatke</button>
+        </div>
+    </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" focus="true" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Učitavanje datoteka...</h1>
+            </div>
+            <div class="modal-body">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 60%;">
+                        &nbsp;
+                    </div>
+                    <span>60%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenter" focus="true" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Upozorenje</h1>
+            </div>
+            <div class="modal-body">
+                <h5 class="modal-title" id="exampleModalLongTitle">Želite li se stvarno prijaviti za Distribuciju?</h5>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="SaveFormData()" class="btn btn-primary">Da</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Ne</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="generiranjePotvrde" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Generiranje potvrde...</h1>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="pohranaPodataka" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Pohrana podataka...</h1>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div></div>
+
+<!-- START Bootstrap-Cookie-Alert -->
+<div class="alert text-center cookiealert" role="alert">
+    Ova aplikacija koristi kolačiće za pružanje boljeg korisničkog iskustva. Cookie postavke mogu se kontrolirati i konfigurirati u vašem web pregledniku. Za nastavak pregleda i korištenja ove aplikacije kliknite na "Slažem se".
+
+    <button type="button" class="btn btn-primary btn-sm acceptcookies" aria-label="Close">
+        Slažem se
+    </button>
+</div>
+<!-- END Bootstrap-Cookie-Alert -->
+
+<script type="text/javascript" src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+@Scripts.Render("~/bundles/distributeri")

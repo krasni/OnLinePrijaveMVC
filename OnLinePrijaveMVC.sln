@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnLinePrijaveMVC", "OnLinePrijaveMVC\OnLinePrijaveMVC.csproj", "{FD4F075F-B11A-4E9B-940A-989F14842316}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{5005EEA0-D83B-4A12-B582-1F3DA902EB86}"
+	ProjectSection(SolutionItems) = preProject
+		Primjeri prijava za ispit\Hanfa Online prijava ispita.docx = Primjeri prijava za ispit\Hanfa Online prijava ispita.docx
+		Primjeri prijava za ispit\obrazac-broj-1-brok_inf_invsavj.docx = Primjeri prijava za ispit\obrazac-broj-1-brok_inf_invsavj.docx
+		Primjeri prijava za ispit\obrazac-broj-1-mod_mf.docx = Primjeri prijava za ispit\obrazac-broj-1-mod_mf.docx
+		Primjeri prijava za ispit\obrazac-prijave-distributeri.docx = Primjeri prijava za ispit\obrazac-prijave-distributeri.docx
+		Primjeri prijava za ispit\PitanjaIOdgovori.txt = Primjeri prijava za ispit\PitanjaIOdgovori.txt
+		Primjeri prijava za ispit\Testiranje online ispiti i predaja strunih radova (1).docx = Primjeri prijava za ispit\Testiranje online ispiti i predaja strunih radova (1).docx
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD4F075F-B11A-4E9B-940A-989F14842316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD4F075F-B11A-4E9B-940A-989F14842316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD4F075F-B11A-4E9B-940A-989F14842316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD4F075F-B11A-4E9B-940A-989F14842316}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
+		SolutionGuid = {7B4D80B9-5333-49D5-BEE4-AFC035B93185}
+	EndGlobalSection
+EndGlobal

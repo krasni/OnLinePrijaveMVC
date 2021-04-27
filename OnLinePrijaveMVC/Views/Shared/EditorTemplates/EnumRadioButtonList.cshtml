@@ -1,0 +1,10 @@
+﻿@model Enum
+@foreach (var item in EnumHelper.GetSelectList(Model.GetType()))
+{
+    <div class="radio">
+        <label>
+            @Html.RadioButton(string.Empty, item.Value, Model.Equals(Enum.Parse(Model.GetType(), item.Value)))
+            @item.Text
+        </label>
+    </div>
+}
