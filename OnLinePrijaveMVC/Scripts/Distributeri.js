@@ -466,6 +466,8 @@ function SaveFormData() {
     formData.append('PosrednikUOsiguranju', $('#PosrednikUOsiguranju').prop("checked"));
     formData.append('VrijemePrijave', registrationDate);
 
+    formData.append('g-recaptcha-response', $('#g-recaptcha-response').val());
+
     jQuery(function ($) {
         $.ajax({
             type: "POST",
@@ -479,6 +481,7 @@ function SaveFormData() {
                 }
                 else {
                     var errors = data['errors'];
+                    $('html,body').scrollTop(0);
                     displayValidationErrors(errors);
                 }
             },
