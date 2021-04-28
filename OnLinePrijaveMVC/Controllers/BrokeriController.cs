@@ -1,4 +1,5 @@
 ﻿using log4net;
+using Newtonsoft.Json.Linq;
 using OnLinePrijaveMVC.HelperClasses;
 using OnLinePrijaveMVC.Models;
 using OnLinePrijaveMVC.Mvc.Attributes;
@@ -6,9 +7,11 @@ using Spire.Doc;
 using Spire.Doc.Fields;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Vereyon.Web;
@@ -38,8 +41,18 @@ namespace OnLinePrijaveMVC.Controllers
         [HttpPost]
         public JsonResult SaveFormData(BrokerVM BrokerVM)
         {
-            if (!ModelState.IsValid)
+            //Validate Google recaptcha here
+            var response = Request["g-recaptcha-response"];
+            string secretKey = ConfigurationManager.AppSettings["GoogleReCaptchaSecretKey"];
+            var client = new WebClient();
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, response));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+
+            if ((!ModelState.IsValid) || !status)
             {
+                if (!status)
+                    ModelState.AddModelError("GoogleReCaptcha greška", "Google reCaptcha validacija nije uspjela");
                 return Json(new { status = false, errors = ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage).ToList() }, JsonRequestBehavior.AllowGet);
             }
             else
