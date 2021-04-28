@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Vereyon.Web;
 
 namespace OnLinePrijaveMVC
 {
@@ -21,6 +22,7 @@ namespace OnLinePrijaveMVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ValidationConfiguration();
+            FlashMessage.Transport = new FlashMessageSessionTransport();
 
             Bootstrapper.Initialise();
         }
