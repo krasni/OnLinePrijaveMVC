@@ -208,8 +208,8 @@ namespace OnLinePrijaveMVC.Controllers
                        fromEmailAddress: "noreply@hanfa.hr",
                        toName: "",
                        toEmailAddress: brokerVM.Email,
-                       subject: "Generirani PDF dokument",
-                       message: "Generirani PDF dokument",
+                       subject: "Potvrda primitka prijave za provjeru znanja i stjecanje kvalifikacija za L1 Informiranje/ L2 Brokerski poslovi/L3 Investicijsko savjetovanje ",
+                       message: "Vaša prijava za provjeru znanja i stjecanje kvalifikacija za L1 Informiranje/ L2 Brokerski poslovi/L3 Investicijsko savjetovanje uspješno je zaprimljena.",
                        attachments: new Attachment(newPdfFileName, stream.ToArray()));
 
                     FlashMessage.Confirmation("Na adresu elektroničke pošte navedene na obrascu prijave, dobit ćete potvrdu primitka Vaše prijave. U slučaju da predmetnu potvrdu ne zaprimite, molimo da se javite na adresu distribucija.osiguranja@hanfa.hr");
