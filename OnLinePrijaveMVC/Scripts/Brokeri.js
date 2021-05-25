@@ -93,14 +93,12 @@ $().ready(function () {
                 },
                 "DokazIzClankaPet": {
                     required: function () {
-                        return $("input[name='VrstaPrijaveBroker']:checked").val() == 2 && $("#IspitiPolozeniUHanfi").val().length === 0;
+                        return $("input[name='VrstaPrijaveBroker']:checked").val() == 2;
                     },
                     maxFilesLenValid: true
                 },
                 "PotvrdaRadnogIskustva": {
-                    required: function () {
-                        return $("#IspitiPolozeniUHanfi").val().length === 0;
-                    },
+                    required: true,
                     maxFilesLenValid: true
                 },
                 "DokazOPolozenimIspitima": {
