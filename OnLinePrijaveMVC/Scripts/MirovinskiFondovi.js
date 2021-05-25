@@ -91,7 +91,9 @@ $().ready(function () {
                     maxlength: 250
                 },
                 "DokazIzClankaPet": {
-                    required: true,
+                    required: function () {
+                        return $("#IspitiPolozeniUHanfi").val().length === 0;
+                    },
                     maxFilesLenValid: true
                 },
                 "DokazOPolozenimIspitima": {
