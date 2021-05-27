@@ -167,6 +167,8 @@ namespace OnLinePrijaveMVC.Controllers
 
                 document.Replace("%SifraKandidata%", string.Format($"{brokerVM.SifraKandidata}"), false, true);
 
+                document.Replace("%IspitPolazem%", string.Format($"{brokerVM.IspitPolazem.ToString()}"), false, true);
+
                 if (brokerVM.IspitiPolozeniUHanfi != null)
                 {
                     document.Replace("%IspitiPolozeniUHanfi%", string.Format($"{brokerVM.IspitiPolozeniUHanfi.ToUpper()}"), false, true);

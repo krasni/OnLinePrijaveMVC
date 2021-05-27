@@ -165,6 +165,8 @@ namespace OnLinePrijaveMVC.Controllers
 
                 document.Replace("%SifraKandidata%", string.Format($"{mirovinskiFondVM.SifraKandidata}"), false, true);
 
+                document.Replace("%IspitPolazem%", string.Format($"{mirovinskiFondVM.IspitPolazem.ToString()}"), false, true);
+
                 if (mirovinskiFondVM.IspitiPolozeniUHanfi != null)
                 {
                     document.Replace("%IspitiPolozeniUHanfi%", string.Format($"{mirovinskiFondVM.IspitiPolozeniUHanfi.ToUpper()}"), false, true);
