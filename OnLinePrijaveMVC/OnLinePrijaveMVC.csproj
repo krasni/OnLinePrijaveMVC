@@ -506,6 +506,10 @@
     <Compile Include="Migrations\202104080558424_DodanaKolonaError.designer.cs">
       <DependentUpon>202104080558424_DodanaKolonaError.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105270727186_DodanIspitPolazem.cs" />
+    <Compile Include="Migrations\202105270727186_DodanIspitPolazem.designer.cs">
+      <DependentUpon>202105270727186_DodanIspitPolazem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BrokerFile.cs" />
     <Compile Include="Models\BrokerVM.cs" />
@@ -789,6 +793,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104080558424_DodanaKolonaError.resx">
       <DependentUpon>202104080558424_DodanaKolonaError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105270727186_DodanIspitPolazem.resx">
+      <DependentUpon>202105270727186_DodanIspitPolazem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

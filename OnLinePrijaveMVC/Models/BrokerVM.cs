@@ -63,6 +63,9 @@ namespace OnLinePrijaveMVC.Models
         [Display(Name = "OIB")]
         public string OIB { get; set; }
 
+        [Display(Name = "Ispit polažem (navesti koji put)")]
+        public int IspitPolazem { get; set; } = 1;
+
         [Display(Name = "Šifra kandidata")]
         public string SifraKandidata { get; set; }
 
@@ -104,6 +107,7 @@ namespace OnLinePrijaveMVC.Models
             RuleFor(BrokerVM => BrokerVM.Email).NotEmpty().WithMessage("{PropertyName} je obavezan podatak.").EmailAddress().WithMessage("Unesite ispravnu email adresu.");
             RuleFor(BrokerVM => BrokerVM.OIB).NotEmpty().WithMessage("{PropertyName} je obavezan podatak.").Matches("[0-9]{11}$").WithMessage("Unesite ispravan OIB");
             RuleFor(BrokerVM => BrokerVM.SifraKandidata).NotEmpty().WithMessage("{PropertyName} je obavezan podatak.");
+            RuleFor(BrokerVM => BrokerVM.IspitPolazem).NotEmpty().WithMessage("{PropertyName} je obavezan podatak.").GreaterThan(0).WithMessage("{PropertyName} mora biti pozitivan");
             RuleFor(BrokerVM => BrokerVM.IspitiPolozeniUHanfi).MaximumLength(250).WithMessage("Maksimalna dužina za ispite položene u Hanfi je 250 karaktera");
             RuleFor(BrokerVM => BrokerVM.IspitiPolozeniUOrganizacijiCFA).MaximumLength(250).WithMessage("Maksimalna dužina za ispite položene u organizaciji CFA je 250 karaktera");
         }

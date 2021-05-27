@@ -255,6 +255,9 @@ namespace OnLinePrijaveMVC.Controllers
                 Broker.Email = BrokerVM.Email;
                 Broker.OIB = BrokerVM.OIB;
                 Broker.SifraKandidata = BrokerVM.SifraKandidata;
+
+                Broker.IspitPolazem = BrokerVM.IspitPolazem;
+
                 Broker.IspitiPolozeniUHanfi = BrokerVM.IspitiPolozeniUHanfi;
                 Broker.IspitiPolozeniUOrganizacijiCFA = BrokerVM.IspitiPolozeniUOrganizacijiCFA;
 

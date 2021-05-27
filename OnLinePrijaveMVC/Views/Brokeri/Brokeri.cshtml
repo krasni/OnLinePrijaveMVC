@@ -166,70 +166,81 @@
                 </small>
             </div>
         </div>
+
         <div class="row">
             <div class="form-group required col-md-6">
-                <b>B) Pod uvjetom da položim ispit izabran u točki A) ove prijave, podnosim zahtjev za izdavanje Uvjerenja o položenom ispitu.</b>
+                @Html.LabelFor(model => model.IspitPolazem, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.IspitPolazem, new { placeholder = Html.DisplayNameFor(m => m.IspitPolazem), @class = "form-control", @type = "number", @min = "0", @oninput = "this.value = Math.abs(this.value)" })
+            </div>
+            <div class="form-group required col-md-6">
+
             </div>
         </div>
-        <div class="row">
+
+            <div class="row">
+                <div class="form-group required col-md-6">
+                    <b>B) Pod uvjetom da položim ispit izabran u točki A) ove prijave, podnosim zahtjev za izdavanje Uvjerenja o položenom ispitu.</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.IspitiPolozeniUHanfi, new { @class = "control-label" })
+                    @Html.TextAreaFor(model => model.IspitiPolozeniUHanfi, new { placeholder = Html.DisplayNameFor(m => m.IspitiPolozeniUHanfi), @class = "form-control" })
+                </div>
+                <div class="form-group col-md-6">
+                    @Html.LabelFor(model => model.IspitiPolozeniUOrganizacijiCFA, new { @class = "control-label" })
+                    @Html.TextAreaFor(model => model.IspitiPolozeniUOrganizacijiCFA, new { placeholder = Html.DisplayNameFor(m => m.IspitiPolozeniUOrganizacijiCFA), @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="col-md-12 form-group">
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 form-group">
+                    <p>Uz prijavu potrebno je dostaviti sljedeće:</p>
+                </div>
+
+                <div class="col-md-12 form-group required">
+                    <label class="control-label">1. Potvrda o najmanje šest mjeseci odgovarajućeg radnog iskustva (L1 – Informiranje, L2 – Brokerski poslovi, L3 - Investicijsko savjetovanje) (5 MB)</label>
+                    <div>
+                        <input type="file" id="PotvrdaRadnogIskustva" name="PotvrdaRadnogIskustva" multiple="multiple" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <label class="control-label">2. Dokaz o odgovarajućem stupnju obrazovanja (članak 5. (2) i (3) <a target="_blank" href="https://narodne-novine.nn.hr/clanci/sluzbeni/2019_10_99_1999.html">Pravilnika</a>) (L3 - Investicijsko savjetovanje) (5 MB)</label>
+                    <div>
+                        <input type="file" id="DokazIzClankaPet" name="DokazIzClankaPet" multiple="multiple" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <label class="control-label">3. Dokaz o položenim ispitima iz rubrike D) ovoga obrasca (kada je primjenjivo) (5MB)</label>
+                    <div>
+                        <input type="file" id="DokazOPolozenimIspitima" name="DokazOPolozenimIspitima" multiple="multiple" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-12 form-group required">
+                    <label class="control-label">4. Dokaz o podmirenoj naknadi za pristupanje ispitu. (5 MB)</label>
+                    <div>
+                        <input type="file" id="DokazOPodmirenojNaknadi" name="DokazOPodmirenojNaknadi" multiple="multiple" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="counter" value="0" />
+            <input type="hidden" id="total" value="0" />
+            <input type="hidden" id="filesUploaded" value="0" />
+            <input type="hidden" id="filesToUpload" value="0" />
+
+            <div class="form-group row g-recaptcha" data-sitekey="6Ldh5rIaAAAAAEJEauIXJISJrG1VLrsb2JMUDkS4"></div>
+
             <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.IspitiPolozeniUHanfi, new { @class = "control-label" })
-                @Html.TextAreaFor(model => model.IspitiPolozeniUHanfi, new { placeholder = Html.DisplayNameFor(m => m.IspitiPolozeniUHanfi), @class = "form-control" })
+                <button type="button" id="btnUpload" class="btn btn-primary">Predaj podatke</button>
             </div>
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.IspitiPolozeniUOrganizacijiCFA, new { @class = "control-label" })
-                @Html.TextAreaFor(model => model.IspitiPolozeniUOrganizacijiCFA, new { placeholder = Html.DisplayNameFor(m => m.IspitiPolozeniUOrganizacijiCFA), @class = "form-control" })
-            </div>
-        </div>
-
-        <div class="col-md-12 form-group">
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-12 form-group">
-                <p>Uz prijavu potrebno je dostaviti sljedeće:</p>
-            </div>
-
-            <div class="col-md-12 form-group required">
-                <label class="control-label">1. Potvrda o najmanje šest mjeseci odgovarajućeg radnog iskustva (L1 – Informiranje, L2 – Brokerski poslovi, L3 - Investicijsko savjetovanje) (5 MB)</label>
-                <div>
-                    <input type="file" id="PotvrdaRadnogIskustva" name="PotvrdaRadnogIskustva" multiple="multiple" class="form-control">
-                </div>
-            </div>
-
-            <div class="col-md-12 form-group">
-                <label class="control-label">2. Dokaz o odgovarajućem stupnju obrazovanja (članak 5. (2) i (3) <a target="_blank" href="https://narodne-novine.nn.hr/clanci/sluzbeni/2019_10_99_1999.html">Pravilnika</a>) (L3 - Investicijsko savjetovanje) (5 MB)</label>
-                <div>
-                    <input type="file" id="DokazIzClankaPet" name="DokazIzClankaPet" multiple="multiple" class="form-control">
-                </div>
-            </div>
-
-            <div class="col-md-12 form-group">
-                <label class="control-label">3. Dokaz o položenim ispitima iz rubrike D) ovoga obrasca (kada je primjenjivo) (5MB)</label>
-                <div>
-                    <input type="file" id="DokazOPolozenimIspitima" name="DokazOPolozenimIspitima" multiple="multiple" class="form-control">
-                </div>
-            </div>
-
-            <div class="col-md-12 form-group required">
-                <label class="control-label">4. Dokaz o podmirenoj naknadi za pristupanje ispitu. (5 MB)</label>
-                <div>
-                    <input type="file" id="DokazOPodmirenojNaknadi" name="DokazOPodmirenojNaknadi" multiple="multiple" class="form-control">
-                </div>
-            </div>
-        </div>
-
-        <input type="hidden" id="counter" value="0" />
-        <input type="hidden" id="total" value="0" />
-        <input type="hidden" id="filesUploaded" value="0" />
-        <input type="hidden" id="filesToUpload" value="0" />
-
-        <div class="form-group row g-recaptcha" data-sitekey="6Ldh5rIaAAAAAEJEauIXJISJrG1VLrsb2JMUDkS4"></div>
-
-        <div class="form-group col-md-6">
-            <button type="button" id="btnUpload" class="btn btn-primary">Predaj podatke</button>
-        </div>
     </form>
 </div>
 
