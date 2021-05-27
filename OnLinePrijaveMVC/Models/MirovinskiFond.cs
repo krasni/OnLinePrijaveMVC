@@ -72,6 +72,9 @@ namespace OnLinePrijaveMVC.Models
         public string OIB { get; set; }
 
         [Required]
+        public int IspitPolazem { get; set; } = 1;
+
+        [Required]
         public string SifraKandidata { get; set; }
 
         [StringLength(250)]

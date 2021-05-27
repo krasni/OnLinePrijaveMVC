@@ -253,6 +253,9 @@ namespace OnLinePrijaveMVC.Controllers
                 mirovinskiFond.Email = mirovinskiFondVM.Email;
                 mirovinskiFond.OIB = mirovinskiFondVM.OIB;
                 mirovinskiFond.SifraKandidata = mirovinskiFondVM.SifraKandidata;
+
+                mirovinskiFond.IspitPolazem = mirovinskiFondVM.IspitPolazem;
+
                 mirovinskiFond.IspitiPolozeniUHanfi = mirovinskiFondVM.IspitiPolozeniUHanfi;
                 mirovinskiFond.IspitiPolozeniUOrganizacijiCFA = mirovinskiFondVM.IspitiPolozeniUOrganizacijiCFA;
 

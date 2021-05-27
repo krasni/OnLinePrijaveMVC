@@ -84,6 +84,12 @@ $().ready(function () {
                     required: true,
                     isSifraKandidataValid: true
                 },
+
+                "IspitPolazem": {
+                    required: true,
+                    isPositiveNumber: true
+                },
+
                 "IspitiPolozeniUHanfi": {
                     maxlength: 250
                 },
@@ -91,7 +97,9 @@ $().ready(function () {
                     maxlength: 250
                 },
                 "DokazIzClankaPet": {
-                    required: true,
+                    required: function () {
+                        return $("#IspitPolazem").val() == 1;
+                    },
                     maxFilesLenValid: true
                 },
                 "DokazOPolozenimIspitima": {
@@ -145,6 +153,12 @@ $().ready(function () {
                     required: "Šifra kandidata je obavezan podatak",
                     isSifraKandidataValid: "Neispravana šifra kandidata"
                 },
+
+                "IspitPolazem": {
+                    required: "Upišite broj pristupa ovom ispitu",
+                    isPositiveNumber: "Upišite pozitivan broj"
+                },
+
                 "IspitiPolozeniUHanfi": {
                     maxlength: "Dozvoljena dužina je 250 karaktera"
                 },
@@ -443,6 +457,9 @@ function SaveFormData() {
     formData.append('Email', $('#Email').val());
     formData.append('OIB',$('#OIB').val());
     formData.append('SifraKandidata', $('#SifraKandidata').val());
+
+    formData.append('IspitPolazem', $('#IspitPolazem').val());
+
     formData.append('IspitiPolozeniUHanfi', $('#IspitiPolozeniUHanfi').val());
     formData.append('IspitiPolozeniUOrganizacijiCFA', $('#IspitiPolozeniUOrganizacijiCFA').val());
     formData.append('VrijemePrijave', registrationDate);

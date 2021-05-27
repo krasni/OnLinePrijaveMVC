@@ -510,6 +510,10 @@
     <Compile Include="Migrations\202105270727186_DodanIspitPolazem.designer.cs">
       <DependentUpon>202105270727186_DodanIspitPolazem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105270831542_DodanIspitPolazemMirovinskiFond.cs" />
+    <Compile Include="Migrations\202105270831542_DodanIspitPolazemMirovinskiFond.designer.cs">
+      <DependentUpon>202105270831542_DodanIspitPolazemMirovinskiFond.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BrokerFile.cs" />
     <Compile Include="Models\BrokerVM.cs" />
@@ -796,6 +800,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105270727186_DodanIspitPolazem.resx">
       <DependentUpon>202105270727186_DodanIspitPolazem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105270831542_DodanIspitPolazemMirovinskiFond.resx">
+      <DependentUpon>202105270831542_DodanIspitPolazemMirovinskiFond.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
